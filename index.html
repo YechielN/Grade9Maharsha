@@ -76,6 +76,26 @@
   </div>
 
   <style>
+    a:hover {
+  color: blue;
+  animation-duration: 1s;
+  animation-name: wave;
+  animation-iteration-count: 1;
+}
+@keyframes wave {
+      10% {
+        transform: rotate(2.5deg);
+      }
+      20% {
+        transform: rotate(-5deg);
+      }
+      30% {
+        transform: rotate(5deg);
+      }
+      40% {
+        transform: rotate(-2.5deg);
+      }
+    }
     .container {
       display: grid;
       grid-template-columns: repeat(20, 1fr);
