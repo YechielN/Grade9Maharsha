@@ -81,25 +81,24 @@
   animation-duration: 1s;
   animation-name: wave;
   animation-iteration-count: 1;
-  transform: scale(1.2);
+  /*transform: scale(1.2);*/
+  animation-fill-mode: forwards;
 }
 @keyframes wave {
-  100% {
-    transform: scale(1.2);
-  }
-}
-@keyframes wave {
-      10% {
+      0% {
         transform: rotate(2.5deg);
+        font-weight: bold;
       }
-      20% {
+      25% {
         transform: rotate(-5deg);
       }
-      30% {
+      50% {
         transform: rotate(5deg);
       }
-      40% {
+      100% {
         transform: rotate(-2.5deg);
+        transform: scale(1.2);
+        font-weight: 750;
       }
     }
     .container {
@@ -112,6 +111,7 @@
       grid-row: span 2;
       border-width: 1px;
       border-color: #000000;
+      font-weight: bold;
     }
     .item1 {
       grid-column: 1/-1;
