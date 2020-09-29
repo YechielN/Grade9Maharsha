@@ -190,7 +190,7 @@ a.LO:hover {
     .container {
       display: grid;
       width: 100vw;
-      grid-template-columns: repeat(20, minmax(50px, 1fr));
+      grid-template-columns: repeat(20, minmax(50px, 10vw));
       grid-template-rows: repeat(13, 1fr);
       padding: 20px;
     }
@@ -290,8 +290,8 @@ a.LO:hover {
 
 <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />-->
 
-<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<link rel="shortcut icon" href="assets/images/maharsha_logo.png" type="image/x-icon">
+<!--<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<link rel="shortcut icon" href="assets/images/maharsha_logo.png" type="image/x-icon">-->
 
 
 
@@ -325,7 +325,7 @@ a.LO:hover {
   margin-right:.5em;
 }
 .fc-content{
-      float: left;
+      float: center;
     margin-right: 51px;
 }
 .I_delete
@@ -335,6 +335,11 @@ a.LO:hover {
 .I_edit,.I_delete
 {
   cursor:pointer;
+}
+.fc-event {
+  color: #ff0000;
+  background: cyan !important;
+  text-align: center !important;
 }
 .site-header {
     margin: 1.4em 28em;
@@ -381,7 +386,10 @@ a.LO:hover {
 #calendar{
     margin: -54px 5px;
     position: absolute;
-    padding-bottom: 20px;
+    border-radius: 20px;
+    padding/*-bottom*/: 20px;
+    background: white;
+    margin-bottom: 25px;
 }
 .search-field:placeholder-shown {
   color: #fff;
@@ -445,6 +453,9 @@ a.LO:hover {
 }
 .fc-day-grid-event .fc-content{
   margin-bottom:10px;
+  color: #000000;
+  font-weight: bold;
+  text-align: center;
 }
 #calendar-popup header {
     text-align: center;
@@ -717,7 +728,7 @@ animation-name:modalopen;
 
 
  .s_title {
- color: #ed8392;
+ color: #ff0022;
     font-size: 1.3em;
     margin: -13px 34px;
     position: absolute;
@@ -742,7 +753,8 @@ font-size: 16px;
   window.console = window.console || function(t) {};
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>-->
+  <script src="prefixfree.min.js"></script>
 
   
   <script>
@@ -880,9 +892,12 @@ Details:</p>
 <!--<button class='btn btn-primary'>Add Events</button>-->
     <!--<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>-->
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js'></script>
+  <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>-->
+  <script src='jquery.min.js'></script>
+<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js'></script>-->
+<script src='moment.min.js'></script>
+<script src='fullcalendar.min.js'></script>
+<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js'></script>-->
 <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js'></script>-->
 <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>-->
   
@@ -1028,7 +1043,7 @@ $(document).ready(function () {
       let arr = parselocalstorage('events');
       callback(arr);
     },
-    eventColor: '#dec5c9',
+    eventColor: '#00ffff',
     eventClick: function (calEvent, jsEvent) {
 
       renderPopup(jsEvent, calEvent.start, calEvent.end, calEvent);
@@ -1040,7 +1055,7 @@ $(document).ready(function () {
       element.append(`<span class='I_edit'><i class="fa fa-edit fa-2x"></i></span>`);
       element.find(".I_delete").click(function () {
         $('#calendar-popup').hide();
-        if (confirm('are you sure want to delete event?')) {
+        if (confirm('Are you sure want to delete event?')) {
           $('#calendar').fullCalendar('removeEvents', event._id);
           var index = events.map(function (x) {return x.id;}).indexOf(event.id);
           events.splice(index, 1);
@@ -1283,6 +1298,14 @@ function parselocalstorage(name) {
 }
 //# sourceURL=pen.js
     </script>
+    <style>
+      #calendar > div.fc-view-container > div > table > tbody > tr > td > div > div > div:nth-child(6) > div.fc-content-skeleton > table > thead > tr > td.fc-day-top.fc-other-month {
+        opacity: 0.6 !important;
+      }
+      .fc-other-month {
+        opacity: 0.6 !important;
+      }
+    </style>
 
   
 
